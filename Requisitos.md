@@ -1,6 +1,6 @@
 \# Requisitos — Implantação de Active Directory (AD-Lab)
 
-Versão 0.1 | Data: 13/10/2026 | Status: Rascunho
+Versão 0.2 | Data: 14/10/2026 | Status: Rascunho
 
 
 
@@ -24,12 +24,27 @@ Fora (por ora): Exchange, ADFS, PKI/AD CS, Entra Connect, VPN real entre filiais
 
 \## 3. Premissas do cenário simulado
 
-\- Usuários: 500+ (alvo de dimensionamento: 600)
+\- Usuários: 500+ (alvo 700)
 
-\- Computadores: \~600 estações + servidores
+\- Contas de Serviço 25 (alvo 40)
 
-\- Sedes: 1 matriz + 3 filiais 
-- Setores: RH, Financeiro, TI, Comercial, Operações, Jurídico, DP, Diretoria
+\- Computadores: 650 (alvo 820)
+
+\- Contas administrativas 20
+
+\- Servidores 30
+
+\- Aplicações integradas ao AD
+
+\- Sub-redes 8
+
+\- OUs 45
+
+\- Administradores (pessoas) 20
+
+\- Sedes: 1 matriz + 3 filiais
+
+* Setores: RH, Financeiro, TI, Comercial, Operações, Jurídico, DP, Diretoria
 
 \- Link entre filiais: simulado (rede interna do VirtualBox)
 
@@ -83,8 +98,9 @@ Fora (por ora): Exchange, ADFS, PKI/AD CS, Entra Connect, VPN real entre filiais
 
 \## 7. Restrições do laboratório
 
-\- Host: RAM 4 GB, CPU 2 núcleos, disco 80 GB livre 
-- Licença: ISO de avaliação (prazo de ⚠️ 180 dias)
+\- Host: RAM 4 GB, CPU 2 núcleos, disco 80 GB livre
+
+* Licença: ISO de avaliação (prazo de ⚠️ 180 dias)
 
 \- VirtualBox versão 7.2.20 ; VMs em modo EFI
 
