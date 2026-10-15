@@ -1,6 +1,6 @@
 \# Requisitos — Implantação de Active Directory (AD-Lab)
 
-Versão 0.3 | Data: 14/10/2026 | Status: Rascunho
+Versão 0.4 | Data: 14/10/2026 | Status: Rascunho
 
 
 
@@ -139,6 +139,37 @@ Horário de pico: 08:00–08:30. Turnos: a definir por filial.
 | SRV01 | DHCP/arquivos/membro | 2 | 4 GB | 60 GB | Matriz |
 
 | CLI01 | Windows 11 cliente | 2 | 4 GB | 60 GB | Matriz |
+
+Categoria	Notebooks
+
+Sistema operacional	Windows 11 Pro
+
+Versão/build	25H2
+
+Quantidade	650
+
+Filiais	Todas
+
+Pode ingressar no domínio?	Sim 
+
+Fim de suporte	12 de outubro de 2027
+
+Dependências legadas	Nenhuma 
+
+Plano	Manter 
+
+SO	Qtde	Função
+
+Windows Server 2025	6	Controladores de domínio (planejados)
+
+Windows Server 2025	10	Arquivos, banco, aplicação
+
+Windows Server 2025	7	Aplicações
+
+Windows Server 2025	4	Legados, com plano de atualização
+
+Linux	3	Aplicações integradas via LDAP/Kerberos
+
 
 
 
