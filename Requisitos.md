@@ -1,6 +1,6 @@
 \# Requisitos — Implantação de Active Directory (AD-Lab)
 
-Versão 0.2 | Data: 14/10/2026 | Status: Rascunho
+Versão 0.3 | Data: 14/10/2026 | Status: Rascunho
 
 
 
@@ -47,6 +47,24 @@ Fora (por ora): Exchange, ADFS, PKI/AD CS, Entra Connect, VPN real entre filiais
 * Setores: RH, Financeiro, TI, Comercial, Operações, Jurídico, DP, Diretoria
 
 \- Link entre filiais: simulado (rede interna do VirtualBox)
+
+### 3.1 Simultaneidade por filial (v0.3)
+
+| Filial | Usuários | Fator | Simultâneos | Disp. ativos | Pico logon (15 min) |
+
+|--------|----------|-------|-------------|--------------|---------------------|
+
+| Matriz | 303 | 85% | 258 | 284 | 155 |
+
+| Filial A | 110 | 80% | 88 | 97 | 53 |
+
+| Filial B | 82 | 75% | 62 | 68 | 37 |
+
+| Filial C | 55 | 70% | 39 | 43 | 23 |
+
+Hipóteses: dispositivos = simultâneos × 1,1; pico = 60% dos simultâneos em 15 min.
+
+Horário de pico: 08:00–08:30. Turnos: a definir por filial.
 
 
 
@@ -126,10 +144,17 @@ Fora (por ora): Exchange, ADFS, PKI/AD CS, Entra Connect, VPN real entre filiais
 
 \## 9. Plano de endereçamento (rascunho)
 
-Rede: 10.10.0.0/16 | Matriz 10.10.10.0/24 | Filial1 10.10.20.0/24 | ...
+ID do site	Finalidade	CIDR	Gateway	Observações
 
-Reserva para servidores: .1 a .50 | DHCP: .100 a .200
+MTR	Estações	10.10.0.0/23	10.10.0.1	358 estações + folga
 
+MTR	Serdores	10.10.2.0/24	10.10.2.1	DCs com IP estático
+
+FIL-A	Estações + Servidores	10.10.10.0/24	10.10.10.1	
+
+FIL-B	Estações + Servidores	10.10.20.0/24	10.10.20.1	
+
+FIL-C	Estações + Servidores	10.10.30.0/24	10.10.30.1	
 
 
 \## 10. Convenção de nomes
@@ -149,6 +174,4 @@ contas administrativas adm.nome, grupos G-/DL- por função.
 \## 12. Critérios de aceite
 
 (lista verificável: replicação sem erros, dcdiag limpo, join de cliente, GPO aplicada...)
-
-
 
