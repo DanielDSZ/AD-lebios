@@ -2,7 +2,7 @@
 
 
 
-\*\*Versão:\*\* 0.1 | \*\*Status:\*\* rascunho | \*\*Última atualização:\*\* AAAA-MM-DD
+\*\*Versão:\*\* 0.3 | \*\*Status:\*\* rascunho | \*\*Última atualização:\*\* AAAA-MM-DD
 
 
 
@@ -30,9 +30,83 @@
 
 \## 3. Requisitos técnicos
 
-(A preencher nas etapas seguintes: volumetria, dispositivos por filial,
 
-sub-redes e links WAN, sistemas operacionais, sistemas de negócio.)
+
+\### 3.1 Volumetria estimada (PLACEHOLDER: valores de exemplo)
+
+
+
+| Filial | Região | Usuários | Computadores | Servidores |
+
+|--------|--------|----------|--------------|------------|
+
+| AMER-1 (sede) | AMER | 220 | 242 | 10 |
+
+| AMER-2 | AMER | 60 | 66 | 2 |
+
+| EMEA-1 | EMEA | 120 | 132 | 5 |
+
+| EMEA-2 | EMEA | 80 | 88 | 3 |
+
+| APAC-1 | APAC | 70 | 77 | 3 |
+
+| APAC-2 | APAC | 50 | 55 | 2 |
+
+| \*\*Total\*\* | | \*\*600\*\* | \*\*660\*\* | \*\*25\*\* |
+
+
+
+Faixa (horizonte 3-5 anos): usuários 550 / 600 / 750 (mín / esperado / máx).
+
+Método: usuários = funcionários + contratados (premissa); computadores ≈ usuários × 1,1.
+
+Confiança: baixa (cenário simulado).
+
+
+
+\### 3.2 Itens de dimensionamento global
+
+
+
+| Item | Estimativa | Faixa | Observação |
+
+|------|------------|-------|------------|
+
+| Aplicações com autenticação AD | 18 | 15-25 | Detalhar na etapa 1.1.7 |
+
+| Filiais | 6 | 6-8 | 3 regiões, 2 filiais por região |
+
+| OUs (preliminar) | 35 | 20-60 | Depende de D-01; refinar no desenho |
+
+| Administradores (total) | 12 | 10-18 | Ver divisão abaixo |
+
+
+
+\### 3.3 Administradores por categoria (PLACEHOLDER)
+
+
+
+| Categoria | Qtde |
+
+|-----------|------|
+
+| Enterprise/Schema (nível floresta) | 2 |
+
+| Administradores regionais | 3 |
+
+| Help desk com delegação (reset de senha etc.) | 6 |
+
+| Auditoria (somente leitura) | 1 |
+
+| \*\*Total\*\* | \*\*12\*\* |
+
+
+
+\### 3.4 Premissas desta seção
+
+\- Todos os números são estimativas de cenário simulado.
+
+\- Usuário inclui contratados; contas de serviço contadas à parte (a estimar).
 
 
 
@@ -66,7 +140,7 @@ sub-redes e links WAN, sistemas operacionais, sistemas de negócio.)
 
 \## 7. Diferenças lab vs. produção
 
-(Registrar aqui o que o lab não consegue simular.)
+O VirtualBox consegue simular várias redes internas, mas latência e perda de pacotes de WAN real não são simuladas bem por padrão.
 
 
 
