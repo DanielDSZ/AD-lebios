@@ -2,7 +2,7 @@
 
 
 
-\*\*Versão:\*\* 0.3 | \*\*Status:\*\* rascunho | \*\*Última atualização:\*\* AAAA-MM-DD
+\*\*Versão:\*\* 4.0 | \*\*Status:\*\* rascunho | \*\*Última atualização:\*\* 2000-10-21
 
 
 
@@ -53,6 +53,36 @@
 | APAC-2 | APAC | 50 | 55 | 2 |
 
 | \*\*Total\*\* | | \*\*600\*\* | \*\*660\*\* | \*\*25\*\* |
+
+Filial	Padrão de trabalho	Presença no pico	Dispositivos por usuário ativo
+
+AMER-1 (sede)	Horário comercial único	90%	1,2
+
+AMER-2	Horário comercial único	85%	1,1
+
+EMEA-1	Horário comercial único	90%	1,2
+
+EMEA-2	Horário comercial único	80%	1,1
+
+APAC-1	Turnos (2)	55%	1,1
+
+APAC-2	Horário comercial único	85%	1,1
+
+Filial	Usuários	Ativos no pico	Dispositivos ativos no pico
+
+AMER-1	220	198	248
+
+AMER-2	60	51	58
+
+EMEA-1	120	108	135
+
+EMEA-2	80	64	73
+
+APAC-1	70	39	46
+
+APAC-2	50	43	49
+
+Total	600	503	609
 
 
 
@@ -107,6 +137,48 @@ Confiança: baixa (cenário simulado).
 \- Todos os números são estimativas de cenário simulado.
 
 \- Usuário inclui contratados; contas de serviço contadas à parte (a estimar).
+
+
+
+\### 3.5 Usuários e dispositivos simultaneamente ativos (PLACEHOLDER)
+
+
+
+Definições:
+
+\- Usuário ativo = sessão aberta no horário de pico da filial.
+
+\- Dispositivo ativo = estação/notebook em uso + servidores ligados 24h.
+
+\- dispositivos ativos = usuários ativos × dispositivos por usuário + servidores.
+
+
+
+| Filial | Padrão | Presença no pico | Disp./usuário | Usuários | Ativos no pico | Dispositivos ativos no pico |
+
+|--------|--------|------------------|---------------|----------|----------------|-----------------------------|
+
+| AMER-1 | Horário único | 90% | 1,2 | 220 | 198 | 248 |
+
+| AMER-2 | Horário único | 85% | 1,1 | 60 | 51 | 58 |
+
+| EMEA-1 | Horário único | 90% | 1,2 | 120 | 108 | 135 |
+
+| EMEA-2 | Horário único | 80% | 1,1 | 80 | 64 | 73 |
+
+| APAC-1 | 2 turnos | 55% | 1,1 | 70 | 39 | 46 |
+
+| APAC-2 | Horário único | 85% | 1,1 | 50 | 43 | 49 |
+
+| \*\*Soma dos picos locais\*\* | | | | \*\*600\*\* | \*\*503\*\* | \*\*609\*\* |
+
+
+
+Observações:
+
+\- O total é a soma dos picos locais, não o pico global (fusos diferentes).
+
+\- Confiança: baixa (cenário simulado). Revisar se o padrão de trabalho mudar.
 
 
 
