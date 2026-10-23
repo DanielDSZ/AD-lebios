@@ -1,6 +1,6 @@
 # Requisitos do Projeto AD-Lab
 
-**Versão:** 7.1 
+**Versão:** 7.3
 **Status:** Rascunho para validação  
 **Última atualização:** 2026-10-22  
 **Plataforma-alvo:** Windows Server 2025  
@@ -140,7 +140,18 @@ Pontos de atenção:
 - Itens que podem exigir extensão de schema: nenhum identificado até agora (a validar).
 - Dependência entre filiais: S-04 e S-05 rodam na sede e atendem todas as filiais pela WAN.
 
+### 3.8 Serviços existentes de apoio (PLACEHOLDER)
+Ver planilha `Servicos-Existentes.xlsx`.
 
+| ID | Serviço | Solução atual | Ação prevista |
+|---|---|---|---|
+| E-01 | DNS | DNS interno em Linux (sede) | A decidir: delegar subdomínio ou migrar zonas |
+| E-02 | DHCP | Servidor na sede; roteadores nas filiais | Ajustar opção de DNS |
+| E-03 | NTP | Fonte externa via servidores da sede | Definir emulador de PDC raiz como fonte do domínio |
+| E-04 | IPAM | Planilha | Manter e alinhar com sites do AD |
+| E-05 | Antivírus/EDR | Console central | Validar exclusões e compatibilidade nos DCs |
+| E-06 | Monitoramento | Ferramenta única | Incluir verificações de AD |
+| E-07 | Backup | Agentes, retenção de 30 dias | Incluir estado do sistema dos DCs; testar restauração |
 
 ## 4. Filiais e fusos horários
 
@@ -322,8 +333,8 @@ Em produção, o mínimo seria 2 DCs por domínio; no laboratório, a redundânc
 
 | Data | Versão | Alteração |
 |---|---|---|
-| 2026-10-22 | 5.0 | Consolidado o inventário de 660 estações/clientes e 25 servidores; documentadas as seis filiais, fusos horários, sub-redes, conectividade WAN, validações e decisões em aberto. |
-| Anterior | 4.0 | Esqueleto inicial do levantamento; continha volumetria ilustrativa e campos placeholder. |
+| 2026-10-23 | 7.3 | Definido os sistemas existentes como DHCP, DNS, NTP, IPAM, Antivirus, Monitoramento e Backup. |
+| Anterior | 7.1 | Registro dos sistemas de negócios que utilizarão autenticação do Active Directory, incluindo arquivos, impressão, aplicações internas, VPN e serviços de rede. |
 
 ## 14. Referências de fuso horário
 
