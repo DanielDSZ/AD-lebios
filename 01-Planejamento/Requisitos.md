@@ -1,6 +1,6 @@
 # Requisitos do Projeto AD-Lab
 
-**Versão:** 6.1 
+**Versão:** 7.1 
 **Status:** Rascunho para validação  
 **Última atualização:** 2026-10-22  
 **Plataforma-alvo:** Windows Server 2025  
@@ -130,6 +130,15 @@ Definições:
 Observações:
 - Cinco das seis filiais estão em UTC−03:00 e o Chile varia sazonalmente entre UTC−03:00 e UTC−04:00 (seção 4.2). Os picos de logon tendem a **coincidir**, então a soma dos picos locais é uma estimativa conservadora do pico global.
 - Registrar a origem de cada percentual (medição, estimativa, política de turnos).
+
+### 3.7 Sistemas e serviços que autenticam no AD (PLACEHOLDER)
+Ver planilha `Sistemas-AD.xlsx`.
+
+Resumo: 14 itens catalogados em 5 categorias (arquivos, impressão, aplicações internas, VPN, serviços de rede).
+Pontos de atenção:
+- Itens com método ainda não confirmado: S-05, S-06 (a validar com os donos).
+- Itens que podem exigir extensão de schema: nenhum identificado até agora (a validar).
+- Dependência entre filiais: S-04 e S-05 rodam na sede e atendem todas as filiais pela WAN.
 
 
 
