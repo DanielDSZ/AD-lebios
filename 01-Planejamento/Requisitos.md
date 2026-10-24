@@ -1,6 +1,6 @@
 # Requisitos do Projeto AD-Lab
 
-**Versão:** 7.3
+**Versão:** 7.4
 **Status:** Rascunho para validação  
 **Última atualização:** 2026-10-22  
 **Plataforma-alvo:** Windows Server 2025  
@@ -153,6 +153,50 @@ Ver planilha `Servicos-Existentes.xlsx`.
 | E-06 | Monitoramento | Ferramenta única | Incluir verificações de AD |
 | E-07 | Backup | Agentes, retenção de 30 dias | Incluir estado do sistema dos DCs; testar restauração |
 
+### 3.9 Requisitos de conformidade e segurança (PLACEHOLDER)
+Ver planilha `Conformidade.xlsx`.
+
+Resumo:
+- Normas candidatas: LGPD, leis de proteção de dados da Argentina, Uruguai e Chile; ISO 27001, PCI DSS e regras setoriais a confirmar.
+- Requisitos de exemplo cadastrados: auditoria (RA), privacidade (RP), retenção (RR), controle de acesso (RC).
+- Valores de retenção: a definir com jurídico/compliance.
+
+Tensões a resolver:
+- Residência de dados vs. floresta única (D-01, D-10).
+- Retenção de logs vs. minimização de dados pessoais.
+
+### 3.10 Responsáveis e governança (PLACEHOLDER)
+Ver planilha `Responsaveis.xlsx` (papéis, titulares, suplentes, matriz RACI).
+
+Resumo:
+- Aprovação técnica: gestor de TI (A), arquiteto de identidade (R).
+- Segurança: segurança da informação (A) em auditoria, acessos privilegiados e contas de emergência.
+- Operação: operações de infraestrutura (A/R), com TI local delegada por filial.
+- Recuperação: gestor de TI (A) para declarar desastre; operações e arquiteto (R).
+
+Pontos de atenção:
+- Titulares e suplentes ainda a definir.
+- Custódia de contas de emergência exige no mínimo duas pessoas.
+- Contatos registrados apenas como caixas de equipe, sem dados pessoais.
+
+### 3.11 Requisitos de disponibilidade de autenticação (PLACEHOLDER)
+
+Definições: autenticação local, autenticação remota, modo normal e degradado (ver 3.11.1).
+
+| Filial | Sem WAN (meta) | Escrita sem WAN | Remoto | Classe hipotética |
+|---|---|---|---|---|
+| BIOS-BH | Obrigatória | Sim | VPN redundante | 1 |
+| BIOS-SP | 8 h | Não | Via sede | 2 ou 3 |
+| BIOS-RJ | 8 h | Não | Via sede | 2 ou 3 |
+| BIOS-MVD | 24 h | Não | Via sede | 2 |
+| BIOS-BSAS | 72 h | A decidir | Via sede | 1 ou 2 |
+| BIOS-RM | 72 h | A decidir | Via sede | 1 ou 2 |
+
+Dependências a registrar:
+- Autenticar localmente não basta se o sistema usado está na sede (cruzar com 1.1.7).
+- Localização do emulador de PDC e dos DCs do domínio raiz: decisão em aberto.
+- Em múltiplos domínios, cada site classe 1 precisa de catálogo global ou cache de grupos universais.
+
 ## 4. Filiais e fusos horários
 
 ### 4.1 Cadastro inicial de filiais
@@ -297,6 +341,7 @@ Boas práticas a considerar no desenho:
 8. **Disponibilidade:** detalhar o que significa “autenticar com a WAN indisponível” para cada tipo de usuário, dispositivo e aplicação.
 9. **Segurança:** definir requisitos de MFA para acessos administrativos, proteção de contas privilegiadas, auditoria, backup e recuperação.
 10. **Crescimento:** estimar a evolução de usuários, dispositivos, filiais e aplicações para os próximos 3–5 anos.
+11. **Juridico: avaliação de leis e jurisdições sobre retenção de dados pessoais para auditoria.
 
 ## 11. Decisões em aberto
 
@@ -312,6 +357,7 @@ Boas práticas a considerar no desenho:
 | D-08 | Backup e recuperação de AD DS | RPO/RTO, criticidade e infraestrutura disponível | Recuperação de desastre |
 | D-09 | Estratégia de links redundantes | Contratos WAN e orçamento | Continuidade de autenticação e replicação |
 | D-10 | Critério de regionalização dos domínios filhos (por país ou por grupo de países) | Autonomia administrativa, requisitos legais de dados, limite de 4 VMs do laboratório | Número mínimo de DCs (ver nota abaixo) |
+| D-11 | Métodos de coleta de dados para auditoria  | Plataforma de coleta de logs | Política de retenção de logs | 
 
 > Não utilizar `corp.example.com` como namespace definitivo sem decisão formal. É um exemplo de documentação, não uma recomendação final para o ambiente real.
 Nota sobre D-10 (mínimo de 1 DC por domínio, sem redundância):
@@ -333,8 +379,8 @@ Em produção, o mínimo seria 2 DCs por domínio; no laboratório, a redundânc
 
 | Data | Versão | Alteração |
 |---|---|---|
-| 2026-10-23 | 7.3 | Definido os sistemas existentes como DHCP, DNS, NTP, IPAM, Antivirus, Monitoramento e Backup. |
-| Anterior | 7.1 | Registro dos sistemas de negócios que utilizarão autenticação do Active Directory, incluindo arquivos, impressão, aplicações internas, VPN e serviços de rede. |
+| 2026-10-24 | 7.4 | Definição de diponibilidade indisponibilidade de logon  |
+| Anterior | 7.3 | Atribuição de responsabilidade e gorvenança  |
 
 ## 14. Referências de fuso horário
 
