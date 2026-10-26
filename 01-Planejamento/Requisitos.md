@@ -42,6 +42,59 @@
 
 O laboratório é uma simulação de arquitetura. As quantidades de equipamentos não significam, por si só, que todos os equipamentos serão executados simultaneamente no VirtualBox.
 
+## 1.2.1 Plataforma de virtualização e isolamento
+
+**Decisão:** o ambiente será implementado integralmente no **Oracle VirtualBox**
+[versão instalada: 7.2.20], em host [Windows/Linux: Windows].
+
+**Isolamento de produção:**
+- O laboratório NÃO terá conexão direta com nenhuma rede de produção.
+- Nenhum adaptador de VM será configurado em modo Bridged.
+- A comunicação entre as VMs do AD usará redes do tipo Internal Network
+  [nomes: AD-lebios].
+- Não haverá compartilhamento de conexão (ICS/bridge) do host para a rede do lab.
+
+**Justificativa:** evitar que serviços de infraestrutura do AD (DNS, DHCP,
+registros de DC) interfiram em redes reais; garantir que testes de falha,
+restauração e delegação não tenham impacto fora do lab.
+
+**Consequências / limitações:**
+- Filiais, links WAN e latências do item de WAN serão SIMULADOS, não reais.
+- Recursos do host: 20 GB RAM, 4 CPUs, 1 TB de disco, máx. 4 VMs simultâneas.
+- Ambiente de laboratório: o desenho final em produção pode diferir.
+
+**Critério de verificação:** nenhum adaptador de nenhuma VM em modo Bridged
+(conferir antes de ligar cada VM).
+
+**Ponto em aberto (D-10):** acesso à internet das VMs para atualizações
+(isolamento total vs. saída via NAT controlada).
+
+## 1.2.2 Objetivo de simulação
+
+**Objetivo:** simular uma organização multinacional de grande porte, com
+mais de 500 funcionários, múltiplas filiais e múltiplos setores.
+
+**Parâmetros da simulação (conforme levantamento):**
+- Filiais: 6 (BIOS-BH, BIOS-SP, BIOS-RJ, BIOS-BSAS, BIOS-MVD, BIOS-RM).
+- Equipamentos: 660 estações e 25 servidores (685 no total).
+- Funcionários: mais de 500 [quantidade exata de usuários: PLACEHOLDER;
+  não inferir a partir dos dispositivos].
+- Setores: [PLACEHOLDER, ex.: TI, RH, Financeiro, Comercial, Operações,
+  Jurídico], distribuídos pelas filiais.
+- Administradores: 12 (preliminar).
+
+**Escopo da simulação:**
+- Será simulado em escala: estrutura do diretório (usuários, grupos, OUs,
+  contas de computador), delegação administrativa, sites e sub-redes.
+- Será reproduzido com VMs reais: DCs e um conjunto mínimo de servidores e
+  clientes, dentro do limite de 4 VMs simultâneas.
+- NÃO será representativo: carga real de autenticação, desempenho de
+  replicação em volume e latências reais de WAN.
+
+**Critério de aceite:** o desenho final deve ser coerente com esse porte
+(6 filiais, setores, administração descentralizada) e as decisões em aberto
+D-01 a D-10 devem ser avaliadas contra ele.
+
 ## 2. Requisitos de negócio
 
 | ID | Requisito | Origem/parte interessada | Prioridade | Status |
