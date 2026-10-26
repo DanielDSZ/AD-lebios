@@ -197,6 +197,16 @@ Dependências a registrar:
 - Localização do emulador de PDC e dos DCs do domínio raiz: decisão em aberto.
 - Em múltiplos domínios, cada site classe 1 precisa de catálogo global ou cache de grupos universais.
 
+### 3.12 Resultados esperados do laboratório (PLACEHOLDER)
+
+**Definição de pronto:** todos os critérios RL passaram com evidência guardada; falhas viram pendências com dono e prazo.
+
+**Topologia validada nesta fase:** a decidir (caminho A ou B, ver D-01 e D-10).
+
+**Fora do laboratório (validado só no papel):** carga real de usuários, latência e perda de WAN, VPN real, SIEM e retenção de logs, todas as filiais simultâneas.
+
+(Tabela de critérios RL-01 a RL-16)
+
 ## 4. Filiais e fusos horários
 
 ### 4.1 Cadastro inicial de filiais
